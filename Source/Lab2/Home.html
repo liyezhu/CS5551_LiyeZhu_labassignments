@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="geolocation">
+<head>
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Learn Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link href="content/css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="content/js/jquery.min.js"></script>
+    <script src="content/js/bootstrap.min.js"></script>
+    <!-- Custom Theme files -->
+    <link href="content/css/style.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="/content/css/jquery.countdown.css" />
+    <link href="content/css/download.css" rel='stylesheet' type='text/css'>
+    <!----font-Awesome----->
+    <link href="content/css/font-awesome.css" rel="stylesheet">
+    <!----font-Awesome----->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js" type="application/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBXFvsClDq6qCmCvrIeBiUr1OL_wWYJ5g&v=3.exp&sensor=true"></script>
+    <style>
+        #map-canvas {
+            width: 1000px;
+            height: 500px;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $(".dropdown").hover(
+                function() {
+                    $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+                    $(this).toggleClass('open');
+                },
+                function() {
+                    $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+                    $(this).toggleClass('open');
+                }
+            );
+        });
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation"  >
+    <div  class="container" >
+        <div class="navbar-header"  >
+
+            <a class="navbar-brand" href="#">WEB APPLICATION</a>
+        </div>
+        <!--/.navbar-header-->
+        <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" style="height: 1px;">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="Main.html" class="dropdown-toggle"><i class="fa fa-list"></i><span>Main</span></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#"><i class="fa fa-user"></i><span>Home</span></a>
+                </li>
+                <li class="dropdown">
+                    <a href="Login.html"><i class="fa fa-user"></i><span>Login</span></a>
+                </li>
+                <li class="dropdown">
+                    <a href="Register.html"><i class="fa fa-user"></i><span>Register</span></a>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe"></i><span>About Us</span></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search"></i><span>Search</span></a>
+                    <ul class="dropdown-menu search-form">
+                        <form>
+                            <input type="text" class="search-text" name="s" placeholder="Search...">
+                            <button type="submit" class="search-submit"><i class="fa fa-search"></i></button>
+                        </form>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <!--/.navbar-collapse-->
+
+</nav>
+<div class="courses_banner">
+    <div class="container">
+        <h3>Home</h3>
+        <p class="description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam, adipiscing condimentum tristique vel, eleifend sed turpis. Pellentesque cursus arcu id magna euismod in elementum purus molestie.
+        </p>
+        <div class="breadcrumb1">
+            <ul>
+                <li class="icon6"><a href="#">Main</a></li>
+                <li class="current-page">Home</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- //banner -->
+<div class="container">
+    <br/>
+    <p class="lead">Here's your current location: </p>
+    <br/>
+<div class="geo" ng-controller="googlemapoutput">
+    <div id="map-canvas"></div>
+</div>
+</div>
+
+<div class="copy">
+    <p>Copyright &copy; Liye Zhu</p>
+</div>
+
+
+</body>
+</html>
+
+<script>
+    angular.module('geolocation', [])
+        .controller('googlemapoutput', function ($scope) {
+
+            var map;
+            var mapOptions;
+
+            $scope.initialize = function () {
+                navigator.geolocation.getCurrentPosition(function (position) {
+
+                    var pos = new google.maps.LatLng(
+                        position.coords.latitude,
+                        position.coords.longitude);
+
+                    var mapOptions = {
+                        zoom: 16,
+                        center: pos
+                    };
+
+                    map = new google.maps.Map(document.getElementById('map-canvas'),
+                        mapOptions);
+
+                    var marker = new google.maps.Marker({
+                        position: pos,
+                        map: map
+                    });
+                });
+            };
+
+            google.maps.event.addDomListener(window, 'load', $scope.initialize);
+
+        });
+</script>
