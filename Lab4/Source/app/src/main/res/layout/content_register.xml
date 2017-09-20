@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.lzd27.lab4.GoogleSignInActivity"
+    tools:showIn="@layout/activity_register">
+
+    <EditText
+        android:id="@+id/txt_uname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textEmailAddress"
+        android:layout_below="@+id/lbl_Header"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/txt_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:layout_below="@+id/txt_uname"
+        android:layout_alignLeft="@+id/txt_uname"
+        android:layout_alignStart="@+id/txt_uname" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/txt_Pwd"
+        android:hint="Password"
+        android:password="true"
+        android:layout_below="@+id/txt_email"
+        android:layout_alignLeft="@+id/txt_email"
+        android:layout_alignStart="@+id/txt_email"
+        android:layout_marginTop="22dp" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="register"
+        android:text="Sign up"
+        android:layout_marginTop="42dp"
+        android:layout_below="@+id/txt_Pwd"
+        android:layout_alignRight="@+id/lbl_Header"
+        android:layout_alignEnd="@+id/lbl_Header" />
+
+    <TextView
+        android:id="@+id/lbl_Header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:singleLine="false"
+        android:text="Register"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#415ca0" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SIGN IN"
+        android:onClick="change"
+        android:layout_alignBaseline="@+id/btn_login"
+        android:layout_alignBottom="@+id/btn_login"
+        android:layout_toRightOf="@+id/btn_login"
+        android:layout_toEndOf="@+id/btn_login" />
+
+</RelativeLayout>
