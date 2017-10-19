@@ -13,3 +13,5 @@ lab #5 wiki page https://github.com/liyezhu/CS5551_LiyeZhu_labassignments/wiki/L
 lab #6 wiki page https://github.com/liyezhu/CS5551_LiyeZhu_labassignments/wiki/Lab-%236
 
 lab #7 wiki page https://github.com/liyezhu/CS5551_LiyeZhu_labassignments/wiki/Lab-%237
+
+lab #8 wiki page https://github.com/liyezhu/CS5551_LiyeZhu_labassignments/wiki/Lab-%238
